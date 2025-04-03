@@ -1,0 +1,52 @@
+# your workflow name
+name: Deploy to github_pages
+
+# when to run
+on:
+  push:
+    branches:
+      - master # the branch to deploy
+    pull_request: # when a pull request is merged
+      branches:
+        - master
+
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+
+      permissions: # for github pages
+        id-token: write
+        pages: write
+        pull-requests: write
+        contents: write
+
+      steps: # the steps to run
+        - name: Checkout
+          uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
+
+        - name: Cache node modules
+          uses: actions/cache@v4
+          with:
+            path: ~/.npm
+            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+            restore-keys: |
+              ${{ runner.os }}-node-
+
+        -  name: Show node version
+           run: node --version
+
+        - name: Install dependencies
+          run: npm install
+
+        - name: Build
+          run: npm run build
+
+        - name: Deploy
+          uses: JamesIves/github-pages-deploy-action@v4
+          with:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            BRANCH: gh-pages
+            FOLDER: build
+            CLEAN: true
