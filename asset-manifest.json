@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/react_music_ts/static/css/main.a54a1fc9.css",
+    "main.js": "/react_music_ts/static/js/main.bf92bd6a.js",
+    "static/js/897.ef13f9fb.chunk.js": "/react_music_ts/static/js/897.ef13f9fb.chunk.js",
+    "static/js/352.02cadac0.chunk.js": "/react_music_ts/static/js/352.02cadac0.chunk.js",
+    "static/js/98.0ce364a7.chunk.js": "/react_music_ts/static/js/98.0ce364a7.chunk.js",
+    "static/js/430.38fa5d3a.chunk.js": "/react_music_ts/static/js/430.38fa5d3a.chunk.js",
+    "static/js/237.6bc77870.chunk.js": "/react_music_ts/static/js/237.6bc77870.chunk.js",
+    "static/js/558.3ae97df0.chunk.js": "/react_music_ts/static/js/558.3ae97df0.chunk.js",
+    "static/js/825.86fe8894.chunk.js": "/react_music_ts/static/js/825.86fe8894.chunk.js",
+    "static/js/729.37cacc6d.chunk.js": "/react_music_ts/static/js/729.37cacc6d.chunk.js",
+    "static/js/575.86c46416.chunk.js": "/react_music_ts/static/js/575.86c46416.chunk.js",
+    "static/js/821.9605cf14.chunk.js": "/react_music_ts/static/js/821.9605cf14.chunk.js",
+    "static/js/989.dcb4e989.chunk.js": "/react_music_ts/static/js/989.dcb4e989.chunk.js",
+    "index.html": "/react_music_ts/index.html",
+    "main.a54a1fc9.css.map": "/react_music_ts/static/css/main.a54a1fc9.css.map",
+    "main.bf92bd6a.js.map": "/react_music_ts/static/js/main.bf92bd6a.js.map",
+    "897.ef13f9fb.chunk.js.map": "/react_music_ts/static/js/897.ef13f9fb.chunk.js.map",
+    "352.02cadac0.chunk.js.map": "/react_music_ts/static/js/352.02cadac0.chunk.js.map",
+    "98.0ce364a7.chunk.js.map": "/react_music_ts/static/js/98.0ce364a7.chunk.js.map",
+    "430.38fa5d3a.chunk.js.map": "/react_music_ts/static/js/430.38fa5d3a.chunk.js.map",
+    "237.6bc77870.chunk.js.map": "/react_music_ts/static/js/237.6bc77870.chunk.js.map",
+    "558.3ae97df0.chunk.js.map": "/react_music_ts/static/js/558.3ae97df0.chunk.js.map",
+    "825.86fe8894.chunk.js.map": "/react_music_ts/static/js/825.86fe8894.chunk.js.map",
+    "729.37cacc6d.chunk.js.map": "/react_music_ts/static/js/729.37cacc6d.chunk.js.map",
+    "575.86c46416.chunk.js.map": "/react_music_ts/static/js/575.86c46416.chunk.js.map",
+    "821.9605cf14.chunk.js.map": "/react_music_ts/static/js/821.9605cf14.chunk.js.map",
+    "989.dcb4e989.chunk.js.map": "/react_music_ts/static/js/989.dcb4e989.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a54a1fc9.css",
+    "static/js/main.bf92bd6a.js"
+  ]
+}

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_music_ts=self.webpackChunkreact_music_ts||[]).push([[352],{352:(e,s,c)=>{c.r(s),c.d(s,{default:()=>n});var a=c(43),t=c(579);const r=()=>(0,t.jsx)(a.Fragment,{children:(0,t.jsx)("div",{children:"DownloadPage"})}),n=(0,a.memo)(r)}}]);
+//# sourceMappingURL=352.02cadac0.chunk.js.map

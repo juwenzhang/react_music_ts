@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_music_ts=self.webpackChunkreact_music_ts||[]).push([[821],{821:(e,s,c)=>{c.r(s),c.d(s,{default:()=>i});var r=c(43),t=c(579);const a=()=>(0,t.jsx)(r.Fragment,{children:(0,t.jsx)("div",{children:(0,t.jsx)("div",{children:"songPage"})})}),i=(0,r.memo)(a)}}]);
+//# sourceMappingURL=821.9605cf14.chunk.js.map
