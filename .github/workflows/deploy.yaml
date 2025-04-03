@@ -45,7 +45,7 @@ on:
         - name: Deploy
           uses: JamesIves/github-pages-deploy-action@v4
           with:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.TOKEN }}
             BRANCH: gh-pages
             FOLDER: build
             CLEAN: true
