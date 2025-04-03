@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment, memo, Suspense } from 'react';
+import { useRoutes } from 'react-router-dom';
+import routes from '@/router/index';
+import navConfig from '@/views/configs/nav-config';
+import AppLink from '@/base-ui/link/app-link';
+import AppRouteLink from '@/base-ui/link/app-route-link';
+import AppRouteLoading from '@/base-ui/loading/app-route-loading';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <div className="app">
+        <nav className="app-nav">
+          {navConfig.map((item) => {
+            return item.type === 'route' ? (
+              <AppRouteLink
+                key={item.name}
+                to={item.route}
+                title={item.title}
+              />
+            ) : (
+              <AppLink key={item.name} href={item.route} title={item.title} />
+            );
+          })}
+        </nav>
+        <Suspense fallback={<AppRouteLoading />}>
+          <div className="app-route">{useRoutes(routes)}</div>
+        </Suspense>
+      </div>
+    </Fragment>
   );
-}
+};
 
-export default App;
+export default memo(App);
