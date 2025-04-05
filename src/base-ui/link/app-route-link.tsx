@@ -1,16 +1,24 @@
-import React, { memo, Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import React, { memo } from 'react';
+import { NavLink } from 'react-router-dom';
 
 interface AppLinkProps {
   children?: React.ReactNode;
   to: string;
   title?: string;
+  isActive?: boolean;
+  onClick?: () => void;
 }
+
 const AppRouteLink: React.FC<AppLinkProps> = (props: AppLinkProps) => {
   return (
-    <Fragment>
-      <Link to={props.to}>{props.title}</Link>
-    </Fragment>
+    <NavLink
+      to={props.to}
+      onClick={props.onClick}
+      className={`app-route-link ${props.isActive ? 'isActive' : ''}`}
+      style={{ padding: '0 10px' }}
+    >
+      {props.title}
+    </NavLink>
   );
 };
 

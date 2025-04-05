@@ -1,16 +1,23 @@
 import React, { Fragment, memo, useEffect, useState } from 'react';
+import { type BannerDataTemplateType } from '@/views/discover/pages/recommend/faker/recommend-fakerBanners';
 import {
-  createRecommendFakerData,
-  type BannerDataTemplateType,
-} from '@/fakers/recommend-faker';
-import { BANNER_IMAGE_HEIGHT, BANNER_IMAGE_WIDTH } from '@/constants/banner';
+  BANNER_IMAGE_HEIGHT,
+  BANNER_IMAGE_WIDTH,
+  BANNER_IMAGE_ARRAY,
+} from '@/constants/banner';
+import { localCache } from '@/utils';
+// import { useAppDispatch } from '@/hooks';
+// import { fetchRecommendBanners } from '@/views/discover/pages/recommend/store/recommend-store';
 
 const recommendPage: React.FC = () => {
-  const [bannerList, setBannerList] = useState<BannerDataTemplateType[]>([]);
+  // const dispatch = useAppDispatch();
+  const [bannerList, setBannerList] = useState<BannerDataTemplateType[]>(
+    localCache.getCache(BANNER_IMAGE_ARRAY) || [],
+  );
   const [visibleImages, setVisibleImages] = useState<number[]>([]);
-  // 初始化数据
+  // todo 初始化数据
   useEffect(() => {
-    setBannerList(createRecommendFakerData().bannerData);
+    setBannerList([]);
   }, []);
 
   // todo 实现图片懒加载
@@ -43,7 +50,7 @@ const recommendPage: React.FC = () => {
   return (
     <Fragment>
       <div>
-        <div>
+        <div style={{ display: 'flex', overflow: 'auto' }}>
           {bannerList &&
             bannerList.map((item, index) => {
               return (

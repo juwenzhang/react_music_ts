@@ -8,7 +8,14 @@ interface AppLinkProps {
 const AppLink: React.FC<AppLinkProps> = (props: AppLinkProps) => {
   return (
     <Fragment>
-      <a href={props.href}>{props.title}</a>
+      <a
+        href={props.href}
+        rel="noreferrer"
+        className={'app-link'}
+        style={{ padding: '0 10px' }}
+      >
+        {props.title}
+      </a>
     </Fragment>
   );
 };

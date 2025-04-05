@@ -1,6 +1,7 @@
 import axios, { AxiosHeaders } from 'axios';
 import type { AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 import type { MyAxiosRequestConfig } from '@/types/AxiosType';
+import { localCache } from '@/utils';
 
 class MyAxiosRequest {
   private instance: AxiosInstance;
@@ -13,7 +14,7 @@ class MyAxiosRequest {
       (config: InternalAxiosRequestConfig) => {
         const headers: AxiosHeaders = new AxiosHeaders();
         headers.set('Content-Type', 'application/json;charset=UTF-8');
-        headers.set('Authorization', localStorage.getItem('token') || '');
+        headers.set('Authorization', localCache.getCache('token') || '');
         headers.set('Accept', 'application/json');
         config.headers = headers;
         return config;

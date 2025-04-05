@@ -19,7 +19,7 @@ function BannerDataTemplate() {
 
 function createRecommendFakerData() {
   return {
-    bannerData: Array.from({ length: 5 }, () =>
+    banners: Array.from({ length: 10 }, () =>
       BannerDataTemplate(),
     ) as BannerDataTemplateType[],
   };

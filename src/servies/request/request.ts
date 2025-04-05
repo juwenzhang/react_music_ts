@@ -1,7 +1,7 @@
 import MyAxiosRequest from '@/servies/config/requestConstructor';
 
 let BASE_URL: string = '';
-// 开始区分开发环境或者说生产换行
+// todo: 开始区分开发环境或者说生产换行
 if (process.env.NODE_ENV === 'development') {
   BASE_URL = process.env.DEV_API_ADDR;
 } else {
