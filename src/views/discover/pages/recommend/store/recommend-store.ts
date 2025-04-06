@@ -14,51 +14,56 @@ interface RecommendStoreType {
 }
 
 const fetchRecommendBanners = createAsyncThunk<
-  BannerDataTemplateType[], // 返回值类型
-  void
+  BannerDataTemplateType[],
+  void,
+  { rejectValue: BannerDataTemplateType[] }
 >('recommend/fetchRecommendBanners', async (_, { rejectWithValue }) => {
+  // todo: use try...catch to ensure the request is successful
   try {
     const response: { data: RecommendResponse } =
       await getRecommendBannersRequest();
-    const { banners } = response.data;
-    if (Array.isArray(banners)) {
-      return banners;
+    let bannersData: BannerDataTemplateType[] = [];
+
+    if (response && response.data.banners) {
+      bannersData = response.data.banners;
     }
-    return [];
+    localCache.setCache(BANNER_IMAGE_ARRAY, bannersData);
+    return bannersData; // todo: also can use dispatch(changeBanners(bannersData));
   } catch (error) {
-    console.error('Error fetching recommend banners:', error);
-    const BannerData =
+    console.error('Failed to fetch banners:', error);
+    const bannersData =
       localCache.getCache(BANNER_IMAGE_ARRAY) ||
       createRecommendFakerData().banners;
-    localCache.setCache(BANNER_IMAGE_ARRAY, BannerData);
-    return rejectWithValue(BannerData);
+    localCache.setCache(BANNER_IMAGE_ARRAY, bannersData);
+    return rejectWithValue(bannersData as BannerDataTemplateType[]); // todo: also can use dispatch(changeBanners(bannersData));
   }
 });
 
 const recommendStore = createSlice({
   name: 'recommend',
   initialState: {
-    banners: [],
+    banners: localCache.getCache(BANNER_IMAGE_ARRAY) || [],
   } as RecommendStoreType,
   reducers: {
-    setBanners(state, action) {
+    changeBanners(state, action) {
       state.banners = action.payload;
     },
   },
   extraReducers: (builder) => {
     builder
+      .addCase(fetchRecommendBanners.pending, (state) => {
+        console.log('fetchRecommendBanners pending');
+        state.banners = [];
+      })
       .addCase(fetchRecommendBanners.fulfilled, (state, action) => {
         state.banners = action.payload;
       })
       .addCase(fetchRecommendBanners.rejected, (state, action) => {
-        if (action.payload) {
-          state.banners = action.payload as BannerDataTemplateType[];
-        } else {
-          state.banners = [];
-        }
+        state.banners = action.payload || [];
       });
   },
 });
 
 export default recommendStore.reducer;
+export const { changeBanners } = recommendStore.actions;
 export { fetchRecommendBanners };
