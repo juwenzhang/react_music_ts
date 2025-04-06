@@ -83,7 +83,8 @@ const BannerCenterWrapper = styled.div<{
   .banner-right-img {
     width: 250px;
     height: 100%;
-    background: #1c1919 url(${(props) => props.$BannerRightImage}) 0 60px/250px 100% no-repeat;
+    background: #1c1919 url(${(props) => props.$BannerRightImage}) 0 60px/250px
+      100% no-repeat;
   }
 `;
 
