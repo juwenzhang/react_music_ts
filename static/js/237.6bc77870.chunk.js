@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreact_music_ts=self.webpackChunkreact_music_ts||[]).push([[237],{618:(s,e,c)=>{c.r(e),c.d(e,{default:()=>a});var t=c(43),u=c(579);const r=()=>(0,u.jsx)("div",{children:(0,u.jsx)("h1",{children:"404 Not Found"})}),a=(0,t.memo)(r)}}]);
-//# sourceMappingURL=237.6bc77870.chunk.js.map
