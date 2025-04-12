@@ -6,4 +6,14 @@ const getRecommendBannersRequest = () => {
   });
 };
 
-export { getRecommendBannersRequest };
+const getRecommendHotRequest = (limit: number = 30) => {
+  return axiosInstance.get({
+    url: '/recommend/hots',
+    params: {
+      // query params
+      limit,
+    },
+  });
+};
+
+export { getRecommendBannersRequest, getRecommendHotRequest };

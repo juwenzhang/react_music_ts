@@ -9,6 +9,7 @@ import {
   BannerControlWrapper,
 } from '@/views/discover/pages/recommend/components/recommend-banners/style/BannerWrapper';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import useGetImageColor from '@/hooks/useGetImageColor';
 
 interface RecommendBannersProps {
   banners: BannerDataTemplateType[];
@@ -25,6 +26,15 @@ const RecommendBanners: React.FC<RecommendBannersProps> = (
   const CarouselRef = useRef(null);
   const [visibleImages, setVisibleImages] = useState<number[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [imageColor, setImageColor] = useState<string>('#fff');
+
+  useEffect(() => {
+    setTimeout(() => {
+      useGetImageColor(banners[currentIndex].imageUrl).then((color) => {
+        setImageColor(color);
+      });
+    }, 0);
+  }, [currentIndex, banners]);
 
   // todo 实现图片懒加载
   useEffect(() => {
@@ -54,8 +64,10 @@ const RecommendBanners: React.FC<RecommendBannersProps> = (
   }, [visibleImages]);
 
   // todo: define event func to control carousel move
-  const BtnOnClickHandler = (isRight: boolean) => {
+  const BtnOnClickHandler = async (isRight: boolean) => {
     if (CarouselRef.current) {
+      const mainColor = await useGetImageColor(banners[currentIndex].imageUrl);
+      setImageColor(mainColor);
       return isRight
         ? CarouselRef.current?.next()
         : CarouselRef.current?.prev();
@@ -69,7 +81,7 @@ const RecommendBanners: React.FC<RecommendBannersProps> = (
   };
 
   return (
-    <BannerWrapper>
+    <BannerWrapper $BannerImageColor={imageColor}>
       <BannerCenterWrapper
         $BannerImageWidth={BANNER_IMAGE_WIDTH}
         $BannerImageHeight={BANNER_IMAGE_HEIGHT}
