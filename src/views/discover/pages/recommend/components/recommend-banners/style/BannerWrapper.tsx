@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import React from 'react';
 
-const BannerWrapper = styled.div<{ children?: React.ReactNode }>`
+const BannerWrapper = styled.div<{
+  children?: React.ReactNode;
+  $BannerImageColor: string;
+}>`
   position: relative;
   z-index: 1;
 
@@ -13,7 +16,7 @@ const BannerWrapper = styled.div<{ children?: React.ReactNode }>`
     bottom: 0;
     left: 0;
     right: 0;
-    background: #935a5a;
+    background-color: ${({ $BannerImageColor }) => $BannerImageColor};
     filter: blur(20px);
     z-index: 0;
   }
@@ -38,7 +41,6 @@ const BannerCenterWrapper = styled.div<{
     margin: 0 auto;
     width: ${({ $BannerImageWidth }) => `${$BannerImageWidth}px`};
     position: relative;
-    filter: blur(1px);
 
     .banner-item {
       overflow: hidden;

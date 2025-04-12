@@ -5,9 +5,10 @@ const AppFooter: React.FC = () => {
     <Fragment>
       <footer
         className="app-footer"
-        style={{ textAlign: 'center', marginTop: '20px' }}
+        style={{ textAlign: 'center', marginTop: '20px', fontWeight: 'bold' }}
       >
-        <span>hello world, Github-Juwenzhang</span>
+        <div>Released under the MIT License.</div>
+        <div>Copyright © 2025 @bytedance JuWenZhang</div>
       </footer>
     </Fragment>
   );

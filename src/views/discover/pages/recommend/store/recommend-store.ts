@@ -1,16 +1,27 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getRecommendBannersRequest } from '@/views/discover/pages/recommend/request/recommend-request';
-import { createRecommendFakerData } from '@/views/discover/pages/recommend/faker/recommend-fakerBanners';
-import { type BannerDataTemplateType } from '@/views/discover/pages/recommend/faker/recommend-fakerBanners';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import {
+  getRecommendBannersRequest,
+  getRecommendHotRequest,
+} from '@/views/discover/pages/recommend/request/recommend-request';
+import {
+  type BannerDataTemplateType,
+  createRecommendFakerData,
+} from '@/views/discover/pages/recommend/faker/recommend-fakerBanners';
+import {
+  createRecommendHotData,
+  type HotDataTemplateType,
+} from '@/views/discover/pages/recommend/faker/recommend-fakerHot';
 import { BANNER_IMAGE_ARRAY } from '@/constants/banner';
+import { hotDataLocal } from '@/constants/hot';
 import { localCache } from '@/utils';
 
 interface RecommendResponse {
-  banners?: BannerDataTemplateType[];
+  banners: BannerDataTemplateType[];
 }
 
 interface RecommendStoreType {
   banners: BannerDataTemplateType[];
+  recommendHot: HotDataTemplateType[];
 }
 
 const fetchRecommendBanners = createAsyncThunk<
@@ -35,7 +46,27 @@ const fetchRecommendBanners = createAsyncThunk<
       localCache.getCache(BANNER_IMAGE_ARRAY) ||
       createRecommendFakerData().banners;
     localCache.setCache(BANNER_IMAGE_ARRAY, bannersData);
-    return rejectWithValue(bannersData as BannerDataTemplateType[]); // todo: also can use dispatch(changeBanners(bannersData));
+    return rejectWithValue(bannersData as BannerDataTemplateType[]);
+    // todo: also can use dispatch(changeBanners(bannersData));
+  }
+});
+
+const fetchRecommendHot = createAsyncThunk<
+  HotDataTemplateType[],
+  void,
+  { rejectValue: HotDataTemplateType[] }
+>('recommend/fetchRecommendHot', async (_, { rejectWithValue }) => {
+  const res: { data: HotDataTemplateType[] } = await getRecommendHotRequest();
+  if (res && res.data) {
+    const hotData = res.data;
+    localCache.setCache(hotDataLocal, hotData);
+    return hotData;
+  } else {
+    console.warn('No data returned from getRecommendHotRequest');
+    const fallbackData =
+      localCache.getCache(hotDataLocal) || createRecommendHotData().hotData;
+    localCache.setCache(hotDataLocal, fallbackData);
+    return rejectWithValue(fallbackData as HotDataTemplateType[]);
   }
 });
 
@@ -43,10 +74,14 @@ const recommendStore = createSlice({
   name: 'recommend',
   initialState: {
     banners: localCache.getCache(BANNER_IMAGE_ARRAY) || [],
+    recommendHot: localCache.getCache(hotDataLocal) || [],
   } as RecommendStoreType,
   reducers: {
     changeBanners(state, action) {
       state.banners = action.payload;
+    },
+    changeRecommendHot(state, action) {
+      state.recommendHot = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -60,10 +95,16 @@ const recommendStore = createSlice({
       })
       .addCase(fetchRecommendBanners.rejected, (state, action) => {
         state.banners = action.payload || [];
+      })
+      .addCase(fetchRecommendHot.fulfilled, (state, action) => {
+        state.recommendHot = action.payload || [];
+      })
+      .addCase(fetchRecommendHot.rejected, (state, action) => {
+        state.recommendHot = (action.payload || []) as HotDataTemplateType[];
       });
   },
 });
 
 export default recommendStore.reducer;
-export const { changeBanners } = recommendStore.actions;
-export { fetchRecommendBanners };
+export const { changeBanners, changeRecommendHot } = recommendStore.actions;
+export { fetchRecommendBanners, fetchRecommendHot };
