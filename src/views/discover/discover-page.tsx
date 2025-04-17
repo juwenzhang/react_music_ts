@@ -22,10 +22,7 @@ const DiscoverPage: React.FC = () => {
       setCurrentIndex(0);
       localCache.setCache(localCacheKey, currentIndex);
     }
-    if (currentIndex === 0) {
-      localCache.setCache(localCacheKey, 0);
-    }
-  }, []);
+  }, [localCache.getCache(localCacheKey1)]);
 
   const NavClickHandler = (index: number) => {
     if (localCache.getCache(localCacheKey)) {

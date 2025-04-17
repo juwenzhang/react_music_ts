@@ -17,7 +17,7 @@ const BannerWrapper = styled.div<{
     left: 0;
     right: 0;
     background-color: ${({ $BannerImageColor }) => $BannerImageColor};
-    filter: blur(20px);
+    filter: blur(5px);
     z-index: 0;
   }
 `;

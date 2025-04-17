@@ -2,17 +2,29 @@ import React, { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import SectionHeaderWrapper from '@/components/section-header/style/sectionHeaderWrapper';
+import { localCache } from '@/utils';
 
 interface SectionHeaderProps {
   children?: React.ReactNode;
   title?: string;
   keywords?: string[];
   toPath?: string;
+  subNavConfig?: unknown;
+  activeCacheKey?: string;
 }
 const SectionHeader: React.FC<SectionHeaderProps> = (props) => {
-  const { title, keywords, toPath } = props;
+  const { title, keywords, toPath, subNavConfig, activeCacheKey } = props;
   const navigate = useNavigate();
   const jumpRoute = (path: string) => {
+    let currentIndex = 0;
+    if (Array.isArray(subNavConfig)) {
+      currentIndex = subNavConfig?.findIndex((item: { path: string }) => {
+        if (item.path) {
+          return item.path === path;
+        }
+      });
+    }
+    localCache.setCache(activeCacheKey, currentIndex ?? 0);
     navigate(path);
   };
   return (

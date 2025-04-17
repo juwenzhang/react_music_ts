@@ -10,7 +10,7 @@ module.exports = {
         devtool: 'source-map',
         alias: {
             '@': path.resolve(__dirname, 'src'),
-            components: path.resolve(__dirname, 'src/components'),
+            '@components': path.resolve(__dirname, 'src/components'),
         },
         watchOptions: {
             ignored: [
@@ -24,7 +24,8 @@ module.exports = {
                     use: [
                         'style-loader',
                         'css-loader',
-                        'sass-loader'
+                        'sass-loader',
+                        'postcss-loader'
                     ]
                 },
                 {
@@ -33,9 +34,18 @@ module.exports = {
                     use: [
                         'style-loader',
                         'css-loader',
-                        'less-loader'
+                        'less-loader',
+                        'postcss-loader'
                     ]
-                }
+                },
+              {
+                  test: /\.css$/,
+                  use: [
+                      'style-loader',
+                      'css-loader',
+                      'postcss-loader'
+                  ]
+              }
             ]
         },
     },
