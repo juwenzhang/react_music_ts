@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/react_music_ts/static/css/main.32100e83.css",
-    "main.js": "/react_music_ts/static/js/main.d52d8f4f.js",
-    "static/js/918.26505d4e.chunk.js": "/react_music_ts/static/js/918.26505d4e.chunk.js",
+    "main.js": "/react_music_ts/static/js/main.02acabec.js",
+    "static/js/41.0a5276aa.chunk.js": "/react_music_ts/static/js/41.0a5276aa.chunk.js",
     "static/js/352.d359fd74.chunk.js": "/react_music_ts/static/js/352.d359fd74.chunk.js",
     "static/js/98.6a42e9c0.chunk.js": "/react_music_ts/static/js/98.6a42e9c0.chunk.js",
     "static/js/430.add7a838.chunk.js": "/react_music_ts/static/js/430.add7a838.chunk.js",
     "static/js/237.d1fcb6d2.chunk.js": "/react_music_ts/static/js/237.d1fcb6d2.chunk.js",
-    "static/js/872.e361799e.chunk.js": "/react_music_ts/static/js/872.e361799e.chunk.js",
+    "static/js/644.a262fd16.chunk.js": "/react_music_ts/static/js/644.a262fd16.chunk.js",
     "static/js/825.4690c54e.chunk.js": "/react_music_ts/static/js/825.4690c54e.chunk.js",
     "static/js/729.859d7d66.chunk.js": "/react_music_ts/static/js/729.859d7d66.chunk.js",
     "static/js/575.94443a56.chunk.js": "/react_music_ts/static/js/575.94443a56.chunk.js",
@@ -17,13 +17,13 @@
     "static/media/bannerRight.png": "/react_music_ts/static/media/bannerRight.d83f3ed623c72a08acb2.png",
     "index.html": "/react_music_ts/index.html",
     "main.32100e83.css.map": "/react_music_ts/static/css/main.32100e83.css.map",
-    "main.d52d8f4f.js.map": "/react_music_ts/static/js/main.d52d8f4f.js.map",
-    "918.26505d4e.chunk.js.map": "/react_music_ts/static/js/918.26505d4e.chunk.js.map",
+    "main.02acabec.js.map": "/react_music_ts/static/js/main.02acabec.js.map",
+    "41.0a5276aa.chunk.js.map": "/react_music_ts/static/js/41.0a5276aa.chunk.js.map",
     "352.d359fd74.chunk.js.map": "/react_music_ts/static/js/352.d359fd74.chunk.js.map",
     "98.6a42e9c0.chunk.js.map": "/react_music_ts/static/js/98.6a42e9c0.chunk.js.map",
     "430.add7a838.chunk.js.map": "/react_music_ts/static/js/430.add7a838.chunk.js.map",
     "237.d1fcb6d2.chunk.js.map": "/react_music_ts/static/js/237.d1fcb6d2.chunk.js.map",
-    "872.e361799e.chunk.js.map": "/react_music_ts/static/js/872.e361799e.chunk.js.map",
+    "644.a262fd16.chunk.js.map": "/react_music_ts/static/js/644.a262fd16.chunk.js.map",
     "825.4690c54e.chunk.js.map": "/react_music_ts/static/js/825.4690c54e.chunk.js.map",
     "729.859d7d66.chunk.js.map": "/react_music_ts/static/js/729.859d7d66.chunk.js.map",
     "575.94443a56.chunk.js.map": "/react_music_ts/static/js/575.94443a56.chunk.js.map",
@@ -32,6 +32,6 @@
   },
   "entrypoints": [
     "static/css/main.32100e83.css",
-    "static/js/main.d52d8f4f.js"
+    "static/js/main.02acabec.js"
   ]
 }
