@@ -5,17 +5,17 @@ const RecommendContentWrapper = styled.div<{ children?: React.ReactNode }>`
   border: 1px solid #d3d3d3;
   width: 980px;
   display: flex;
-  margin: 10px auto;
+  margin: 0 auto;
 
   .recommend-left,
   .recommend-right {
-    background-color: #e7dcdc;
-    padding: 20px;
+    background-color: #f3f0f0;
     box-sizing: border-box;
   }
 
   .recommend-left {
     width: 729px;
+    padding: 20px;
   }
 
   .recommend-right {

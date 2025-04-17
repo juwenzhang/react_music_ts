@@ -29,8 +29,8 @@ const SectionCardWrapper = styled.div<{ children: React.ReactNode }>`
       z-index: 2;
 
       .card-play-info {
-        position: absolute;
-        bottom: 0;
+        position: relative;
+        top: 100px;
         display: block;
         width: 100%;
         height: 40px;
@@ -62,13 +62,15 @@ const SectionCardWrapper = styled.div<{ children: React.ReactNode }>`
 
   .card-bottom {
     width: 140px;
-    height: 40px;
+    height: 35px;
     box-sizing: border-box;
     transition: all 500ms ease;
     // 实现文本溢出的解决方案吧
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    position: absolute;
+    bottom: 0;
 
     &:hover {
       text-decoration-line: underline;

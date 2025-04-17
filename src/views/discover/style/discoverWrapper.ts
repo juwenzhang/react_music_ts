@@ -9,11 +9,13 @@ const DiscoverWrapper = styled.div<{
   a {
     color: white;
   }
+
   .discover-nav {
     background-color: ${(props: { theme: ThemeTypeOne }) =>
       props.theme?.color.primary};
     height: 40px;
     font-size: 14px;
+
     .discover-nav-items {
       width: 1300px;
       height: 100%;
@@ -21,6 +23,7 @@ const DiscoverWrapper = styled.div<{
       justify-content: center;
       align-items: center;
       margin: 0 auto;
+
       .discover-nav-item {
         padding: 5px;
         border: 1px solid #333333;
@@ -28,18 +31,25 @@ const DiscoverWrapper = styled.div<{
         transition: all 0.3s ease;
         margin: 0 40px;
       }
+
       .discover-nav-item:hover {
         border: 1px solid white;
       }
+
       .discover-nav-item.isActive {
         border: 1px solid white;
         background-color: ${(props: { theme: ThemeTypeOne }) =>
           props.theme.color.secondary};
+
         a {
           color: black;
         }
       }
     }
+  }
+
+  .discover-article {
+    border-bottom: 1px solid #a4a3a3;
   }
 `;
 

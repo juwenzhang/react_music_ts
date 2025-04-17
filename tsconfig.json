@@ -11,6 +11,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": false,
+    "noImplicitAny": false,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
@@ -24,7 +25,7 @@
       "@/*": ["src/*"],
       "@components/*": ["src/components/*"]
     },
-    "types": ["node", "@testing-library/jest-dom"],
+    "types": ["node", "@testing-library/jest-dom"]
   },
   "include": [
     "src", "src/**/*.tsx", "src/**/*.ts"

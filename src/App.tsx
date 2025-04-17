@@ -5,6 +5,7 @@ import routes from '@/router/index';
 import AppRouteLoading from '@/base-ui/loading/app-route-loading';
 import AppHeader from '@/components/app-header/app-header';
 import AppFooter from '@/components/app-footer/app-footer';
+import PlayerBar from '@/views/player/player-bar/player-bar';
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,8 @@ const App: React.FC = () => {
         </Suspense>
       </div>
       <AppFooter />
+      {/* player bar 的展示 */}
+      <PlayerBar />
     </Fragment>
   );
 };

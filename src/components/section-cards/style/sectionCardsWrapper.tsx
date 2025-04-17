@@ -15,7 +15,6 @@ const SectionCardsWrapper = styled.div<{ children?: React.ReactNode }>`
   }
 
   .hot-scroll {
-    margin-top: 10px;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -33,7 +32,7 @@ const SectionCardsWrapper = styled.div<{ children?: React.ReactNode }>`
 
   .hot-scroll-iterator {
     position: absolute;
-    top: 0;
+    top: 80px;
     bottom: 0;
     left: 0;
     right: 0;
