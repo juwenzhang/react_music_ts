@@ -6,14 +6,20 @@ import AppRouteLoading from '@/base-ui/loading/app-route-loading';
 import AppHeader from '@/components/app-header/app-header';
 import AppFooter from '@/components/app-footer/app-footer';
 import PlayerBar from '@/views/player/player-bar/player-bar';
+import AnimationHoc from '@/hocs/AnimationHoc';
 
 const App: React.FC = () => {
+  const Router: React.FC = () => {
+    const element = useRoutes(routes);
+    return <article className="app-route">{element}</article>;
+  };
+  const AnimationRouter = AnimationHoc(Router);
   return (
     <Fragment>
       <div className="app">
         <AppHeader navConfig={navConfig} />
         <Suspense fallback={<AppRouteLoading />}>
-          <article className="app-route">{useRoutes(routes)}</article>
+          <AnimationRouter />
         </Suspense>
       </div>
       <AppFooter />

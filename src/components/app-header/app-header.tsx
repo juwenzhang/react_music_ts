@@ -5,7 +5,7 @@ import AppLink from '@/base-ui/link/app-link';
 import AppHeaderWrapper from '@/components/app-header/style/appHeaderWrapper';
 import type { NavConfig, NavConfigType } from '@/views/configs/nav-config';
 import { localCache } from '@/utils';
-import { APP_CURRENT_INDEX } from '@/constants/active';
+import { APP_CURRENT_INDEX, RECOMMEND_BANNER_INDEX } from '@/constants/active';
 import { SearchOutlined } from '@ant-design/icons';
 import { Input, type InputRef } from 'antd';
 
@@ -17,6 +17,7 @@ interface PropsType {
 const AppHeader: React.FC<PropsType> = (props: PropsType) => {
   const { navConfig: navConfig } = props;
   const localCacheKey = APP_CURRENT_INDEX;
+  const localCacheKey1 = RECOMMEND_BANNER_INDEX;
   const navigate = useNavigate();
   const inputRef = useRef<InputRef | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(
@@ -44,10 +45,12 @@ const AppHeader: React.FC<PropsType> = (props: PropsType) => {
     if (localCache.getCache(localCacheKey)) {
       localCache.removeCache(localCacheKey);
     }
+    localCache.setCache(localCacheKey1, 0);
     localCache.setCache(localCacheKey, index);
     setCurrentIndex(index);
   };
   const logoClickHandler = () => {
+    localCache.setCache(localCacheKey1, 0);
     navigate('/');
   };
 

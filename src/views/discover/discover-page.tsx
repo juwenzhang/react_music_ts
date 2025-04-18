@@ -4,6 +4,7 @@ import SubNavConfig from '@/views/discover/configs/subNav-config';
 import AppRouteLoading from '@/base-ui/loading/app-route-loading';
 import AppRouteLink from '@/base-ui/link/app-route-link';
 import DiscoverWrapper from '@/views/discover/style/discoverWrapper';
+import AnimationHoc from '@/hocs/AnimationHoc';
 import { RECOMMEND_BANNER_INDEX, APP_CURRENT_INDEX } from '@/constants/active';
 import { localCache } from '@/utils';
 // you can also use React.FC<Props> to get props validation
@@ -31,6 +32,8 @@ const DiscoverPage: React.FC = () => {
     localCache.setCache(localCacheKey, index);
     setCurrentIndex(index);
   };
+  const SubRouter: React.FC = () => <Outlet />;
+  const AnimationSubRouter = AnimationHoc(SubRouter);
   return (
     <Fragment>
       <DiscoverWrapper>
@@ -52,7 +55,7 @@ const DiscoverPage: React.FC = () => {
         </nav>
         <article className={'discover-article'}>
           <Suspense fallback={<AppRouteLoading />}>
-            <Outlet />
+            <AnimationSubRouter />
           </Suspense>
         </article>
       </DiscoverWrapper>
