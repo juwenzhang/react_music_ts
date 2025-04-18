@@ -15,7 +15,7 @@ const AppRouteLink: React.FC<AppLinkProps> = (props: AppLinkProps) => {
       to={props.to}
       onClick={props.onClick}
       className={`app-route-link ${props.isActive ? 'isActive' : ''}`}
-      style={{ padding: '0 10px' }}
+      style={{ padding: '0 10px', fontSize: '14px' }}
     >
       {props.title}
     </NavLink>

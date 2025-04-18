@@ -8,3 +8,7 @@ lint-staged + axios + fakerJs + react-router + reduxjs/toolkit + styled-componen
   * 页面中使用 localStorage 进行缓存数据 --> 渲染到组件中使用即可
 * 所以说是一个纯前端界面，如果说需要进行看到不同的数据出现，请手动清楚 localStorage 中的缓存数据即可
   * 或者说后端接口可以按照 fakerJs 生成的数据模板进行书写后端接口也是可以的呐
+
+---
+* fork 这个 repo 的时候，提交 pr 的时候，在书写代码注释的时候
+* 一定在代码注释前加上 todo 标识， webstorm 具备高亮显示的功能，这一点注意，thanks!!!

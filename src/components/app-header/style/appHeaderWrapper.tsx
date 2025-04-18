@@ -37,6 +37,7 @@ const AppHeaderWrapper = styled.div<{
       gap: 15px;
       a {
         color: white;
+        font-size: 14px;
       }
       .app-route-link,
       .app-link {
@@ -57,6 +58,7 @@ const AppHeaderWrapper = styled.div<{
       align-items: center;
       .app-right-input {
         line-height: 100%;
+        width: 200px;
         .search {
           border-radius: 20px;
           .search-prefix {

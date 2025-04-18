@@ -6,20 +6,23 @@ import { Provider } from 'react-redux';
 import { store } from '@/stores';
 import '@/assets/css/reset.less';
 import { theme } from '@/assets/theme/theme';
+import ErrorBoundary from '@/hocs/ErrorBoundary';
 
 const WithAppConfig = (WrappedComponent: React.ComponentType) => {
   const AppConfigHOC: React.FC = () => {
     return (
       <React.StrictMode>
-        <ThemeProvider theme={theme}>
-          <HashRouter>
-            <Provider store={store}>
-              <Suspense fallback={<AppLoading />}>
-                <WrappedComponent />
-              </Suspense>
-            </Provider>
-          </HashRouter>
-        </ThemeProvider>
+        <ErrorBoundary>
+          <ThemeProvider theme={theme}>
+            <HashRouter>
+              <Provider store={store}>
+                <Suspense fallback={<AppLoading />}>
+                  <WrappedComponent />
+                </Suspense>
+              </Provider>
+            </HashRouter>
+          </ThemeProvider>
+        </ErrorBoundary>
       </React.StrictMode>
     );
   };

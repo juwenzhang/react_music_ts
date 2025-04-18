@@ -12,7 +12,7 @@ const AppLink: React.FC<AppLinkProps> = (props: AppLinkProps) => {
         href={props.href}
         rel="noreferrer"
         className={'app-link'}
-        style={{ padding: '0 10px' }}
+        style={{ padding: '0 10px', fontSize: '14px' }}
       >
         {props.title}
       </a>
